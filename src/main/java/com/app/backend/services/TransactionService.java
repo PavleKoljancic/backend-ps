@@ -1,6 +1,6 @@
 package com.app.backend.services;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -16,11 +16,11 @@ public class TransactionService {
 
     TransactionRepo transactionRepo = new TransactionRepo();
 
-    public void newTicketTransaction(String userId, double amount, Date date){
+    public void newTicketTransaction(String userId, double amount, LocalDate date){
         transactionRepo.getTransactionDb().add(new TicketTransaction(userId, amount, date));
     }
 
-    public void newCreditTransaction(String userId, double amount, Date date, String supervisorId){
+    public void newCreditTransaction(String userId, double amount, LocalDate date, String supervisorId){
         transactionRepo.getTransactionDb().add(new CreditTransaction(userId, amount, date, supervisorId));
     }
 

@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.app.backend.repositories.TicketRequestRepo;
 
-import lib.etickets.ticket.periodic.PeriodicTicket;
 import lib.etickets.ticket.requests.TicketRequest;
 import lib.etickets.users.supervisor.Supervisor;
 
@@ -22,12 +21,14 @@ public class TicketRequestsService {
         return ticketRequestRepo.getTicketRequests(supervisor);
     }
 
-    public String addTicketRequest(TicketRequest newTicketRequest){
-        if(newTicketRequest.requestedTicket instanceof PeriodicTicket){
+    public boolean addTicketRequest(TicketRequest newTicketRequest){
+        if("Periodic".compareTo(userService.ticketsRepo.getTicketTypeById(newTicketRequest.getRequestedTicketId())) == 0){
             ticketRequestRepo.getTicketRequestsDb().add(newTicketRequest);
-            return "Dodan novi periodic ticket request.";
+            return true;
         }
-        else
+        else if("Amount".compareTo(userService.ticketsRepo.getTicketTypeById(newTicketRequest.getRequestedTicketId())) == 0)
             return userService.processRequest(newTicketRequest, ticketRequestRepo);
+        else
+            return false;
     }
 }

@@ -16,7 +16,7 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	implementation 'com.github.PavleKoljancic:LibPS:v1.0.1'
+	implementation 'com.github.PavleKoljancic:LibPS:v1.0.9'
 }
 
 tasks.named('test') {

@@ -1,6 +1,7 @@
 package com.app.backend.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,6 +21,9 @@ public class TerminalActivationRequestsController {
 
     @PostMapping("/addTerminalActivationRequest")
     public ResponseEntity<String> addTerminalActivationRequest(@RequestBody TerminalActivationRequest terminalActivationRequest){
-        return ResponseEntity.ok().body(terminalActivationRequestService.addTerminalActivationRequest(terminalActivationRequest));
+        if(terminalActivationRequestService.addTerminalActivationRequest(terminalActivationRequest))
+        return ResponseEntity.ok().body("Added");
+        
+        return ResponseEntity.status(HttpStatus.CONFLICT).body("");
     }
 }

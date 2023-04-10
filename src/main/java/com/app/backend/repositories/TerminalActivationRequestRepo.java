@@ -8,11 +8,26 @@ import lib.etickets.terminal.activationrequests.TerminalActivationRequest;
 public class TerminalActivationRequestRepo {
     List<TerminalActivationRequest> terminalActivationRequestDb = new ArrayList<>();
 
-    public List<TerminalActivationRequest> getTerminalActivationRequestDb() {
+    public List<TerminalActivationRequest> getTerminalActivationRequests() {
         return terminalActivationRequestDb;
     }
 
-    public void setTerminalActivationRequestDb(List<TerminalActivationRequest> terminalActivationRequestDb) {
-        this.terminalActivationRequestDb = terminalActivationRequestDb;
+    public boolean addTerminalActivationRequestDb(TerminalActivationRequest request) {
+        return terminalActivationRequestDb.add(request);
+    }
+
+    
+    public void updateTerminalActivationRequest(TerminalActivationRequest request) {
+        for(TerminalActivationRequest temp : terminalActivationRequestDb) 
+        {
+
+            if(temp.getTerminalSerialNumber().equals(request.getTerminalSerialNumber())) 
+            {
+                terminalActivationRequestDb.remove(temp);
+                terminalActivationRequestDb.add(request);
+
+            }
+
+        }
     }
 }

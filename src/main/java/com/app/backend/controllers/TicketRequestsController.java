@@ -27,7 +27,9 @@ public class TicketRequestsController {
     }
 
     @PostMapping("/addTicketRequest")
-    public ResponseEntity<?> addTicketRequest(@RequestBody TicketRequest ticketRequest){
-        return ResponseEntity.ok().body(ticketService.addTicketRequest(ticketRequest));
+    public ResponseEntity<String> addTicketRequest(@RequestBody TicketRequest ticketRequest){
+        if(ticketService.addTicketRequest(ticketRequest))
+            return ResponseEntity.ok().body("Added");
+        return ResponseEntity.badRequest().body("Denied");
     }
 }

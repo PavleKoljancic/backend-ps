@@ -10,8 +10,8 @@ import lib.etickets.terminal.activationrequests.TerminalActivationRequest;
 public class TerminalActivationRequestService {
     TerminalActivationRequestRepo terminalActivationRequestRepo = new TerminalActivationRequestRepo();
 
-    public String addTerminalActivationRequest(TerminalActivationRequest terminalActivationRequest){
-        terminalActivationRequestRepo.getTerminalActivationRequestDb().add(terminalActivationRequest);
-        return "Zahtjev za aktivaciju terminala uspjesno poslat.";
+    public boolean addTerminalActivationRequest(TerminalActivationRequest terminalActivationRequest){
+        return terminalActivationRequestRepo.addTerminalActivationRequestDb(terminalActivationRequest);
+
     }
 }
