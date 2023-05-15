@@ -33,7 +33,7 @@ public class UserService {
     public List<Ticket> getTickets(){
         //Ovo se naknadno treba izmjeniti da filtrira
         //Tj da ne vraca sve 
-        return ticketsRepo.getAll();
+        return ticketsRepo.getAll(); 
     }
 
     public List<User> getUsers(){
@@ -101,5 +101,11 @@ public class UserService {
         }
         else
             return null;
+    }
+
+    //Sofija
+    public User getUserInfo(String userId)
+    {
+        return userRepo.usersDb.getUserById(userId);
     }
 }
