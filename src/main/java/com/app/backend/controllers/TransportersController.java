@@ -8,6 +8,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 import com.app.backend.services.TransporterService;
 
 import lib.etickets.transporter.Transporter;
@@ -26,7 +30,7 @@ public class TransportersController {
 
     //SOFIJA
     @PostMapping("/newTransporter")
-    public ResponseEntity<String> newTransporter(@RequestBody Tranporter transporter){
+    public ResponseEntity<String> newTransporter(@RequestBody Transporter transporter){
         if(transporterService.addTransporter(transporter))
             return ResponseEntity.ok().body("Added");
         return ResponseEntity.badRequest().body("Denied");

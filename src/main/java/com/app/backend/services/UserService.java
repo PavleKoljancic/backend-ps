@@ -106,6 +106,6 @@ public class UserService {
     //Sofija
     public User getUserInfo(String userId)
     {
-        return userRepo.usersDb.getUserById(userId);
+        return userRepo.getUserById(userId);
     }
 }

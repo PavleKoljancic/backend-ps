@@ -16,8 +16,8 @@ public class TransportersRepo {
 
     public Transporter getTransporterById(String reqId){
        Transporter tmp = null;
-        for(Transporter t : TransportersDb){
-            if(t.TransporterId.compareTo(reqId) == 0){
+        for(Transporter t : transportersDb){
+            if(t.getTransporterId().compareTo(reqId) == 0){
                 tmp = t;
                 break;
             }
@@ -26,8 +26,8 @@ public class TransportersRepo {
     }
 
     public boolean transporterExists(String reqId){
-         for(Transporter t : TransportersDb){
-             if(t.TransporterId.compareTo(reqId) == 0){
+         for(Transporter t : transportersDb){
+             if(t.getTransporterId().compareTo(reqId) == 0){
                  return true;
              }
          }

@@ -63,7 +63,7 @@ public class UsersController {
 
     //Sofija
     @PostMapping("/getUserInfo/{userId}") 
-    public ResponseEntity<User> getUserInfo(@PathVariable("userId") String userId){
+    public ResponseEntity<?> getUserInfo(@PathVariable("userId") String userId){
         if(userService.getUserInfo(userId) != null)
             return ResponseEntity.ok().body(userService.getUserInfo(userId));
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("UserId error");
