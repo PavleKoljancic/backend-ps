@@ -23,4 +23,12 @@ public class TransportersController {
     public ResponseEntity<List<Transporter>> getTransporters(){
         return ResponseEntity.ok().body(transporterService.getTransporters());
     }   
+
+    //SOFIJA
+    @PostMapping("/newTransporter")
+    public ResponseEntity<String> newTransporter(@RequestBody Tranporter transporter){
+        if(transporterService.addTransporter(transporter))
+            return ResponseEntity.ok().body("Added");
+        return ResponseEntity.badRequest().body("Denied");
+    }
 }

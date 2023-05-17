@@ -17,4 +17,21 @@ public class TransporterService {
     public List<Transporter> getTransporters(){
         return transportersRepo.getAll();
     }
+
+    //SOFIJA
+     public boolean addTransporter(Transporter newTransporter){
+        if(!transportersRepo.transporterExists(newTransporter.getTransporterId())){
+           transportersRepo.getAll().add(newTransporter);
+            return true;
+        }
+        else
+            return false;
+    }
+
+     /* 
+    public boolean addTransporter(Tranporter transporter)
+    {
+            transportersRepo.transportersDb.add(transporter);
+            return true;
+    } */
 }
