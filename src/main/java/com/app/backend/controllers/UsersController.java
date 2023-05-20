@@ -60,4 +60,13 @@ public class UsersController {
             return ResponseEntity.ok().body("");
         return ResponseEntity.badRequest().body("");
     }
+
+     //Sofija
+     @GetMapping("/getUserInfo/{userId}") 
+     public ResponseEntity<?> getUserInfo(@PathVariable("userId") String userId){
+        if(userService.getUserInfo(userId) != null)
+             return ResponseEntity.ok().body(userService.getUserInfo(userId));
+         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("UserId error"); 
+        // return ResponseEntity.ok().body(userService.getUserInfo(userId));
+     }
 }

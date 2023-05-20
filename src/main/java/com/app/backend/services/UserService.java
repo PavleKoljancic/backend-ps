@@ -102,4 +102,10 @@ public class UserService {
         else
             return null;
     }
+
+     //Sofija
+     public User getUserInfo(String userId)
+     {
+         return userRepo.getUserById(userId);
+     }
 }
