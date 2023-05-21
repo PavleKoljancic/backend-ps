@@ -19,4 +19,8 @@ public class SupervisorsService {
     public List<Supervisor> getSupervisors(){
         return supervisorsRepo.getAll();
     }
+
+    public Supervisor getSupervisorById(String id){
+        return supervisorsRepo.getSupervisorById(id);
+    }
 }

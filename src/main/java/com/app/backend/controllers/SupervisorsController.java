@@ -20,9 +20,17 @@ public class SupervisorsController {
     @Autowired
     SupervisorsService supervisorsService;
 
+    //SOFIJA
+
     //treba li provjera za validnost administratora?
     @GetMapping("/getSupervisors")
     public ResponseEntity<List<Supervisor>> getSupervisors(){
         return ResponseEntity.ok().body(supervisorsService.getSupervisors());
     }
+
+    @GetMapping("/supervisor/{id}")
+    public ResponseEntity<Supervisor> getSupervisorById(@PathVariable(name = "id") String id) {
+        return ResponseEntity.ok().body(supervisorsService.getSupervisorById(id));
+    }
+
 }

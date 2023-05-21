@@ -20,4 +20,15 @@ public class SupervisorsRepo {
     public List<Supervisor> getSupervisorsDb() {
         return supervisorsDb;
     }
+
+    public Supervisor getSupervisorById(String reqId){
+        Supervisor tmp = null;
+         for(Supervisor t : supervisorsDb){
+             if(t.getUserId().compareTo(reqId) == 0){
+                 tmp = t;
+                 break;
+             }
+         }
+         return tmp;
+     }
 }
