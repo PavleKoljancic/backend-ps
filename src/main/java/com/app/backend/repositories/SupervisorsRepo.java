@@ -31,4 +31,13 @@ public class SupervisorsRepo {
          }
          return tmp;
      }
+
+     public boolean supervisorExists(String reqId){
+        for(Supervisor t : supervisorsDb){
+            if(t.getUserId().compareTo(reqId) == 0){
+                return true;
+            }
+        }
+        return false;
+    }
 }

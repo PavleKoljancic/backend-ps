@@ -23,4 +23,13 @@ public class SupervisorsService {
     public Supervisor getSupervisorById(String id){
         return supervisorsRepo.getSupervisorById(id);
     }
+
+    public boolean addSupervisor(Supervisor newSupervisor){
+        if(!supervisorsRepo.supervisorExists(newSupervisor.getUserId())){
+            supervisorsRepo.getSupervisorsDb().add(newSupervisor);
+            return true;
+        }
+        else
+            return false;
+    }
 }

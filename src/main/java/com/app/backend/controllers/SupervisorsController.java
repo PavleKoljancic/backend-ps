@@ -33,4 +33,10 @@ public class SupervisorsController {
         return ResponseEntity.ok().body(supervisorsService.getSupervisorById(id));
     }
 
+    @PostMapping("/addSupervisor")
+    public ResponseEntity<String> addSupervisor(@RequestBody Supervisor supervisor){
+        if(supervisorsService.addSupervisor(supervisor))
+            return ResponseEntity.ok().body("Added");
+        return ResponseEntity.badRequest().body("Denied");
+    }
 }
