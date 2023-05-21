@@ -2,6 +2,7 @@ package com.app.backend.services;
 
 import java.util.List;
 
+import lib.etickets.transporter.route.Route;
 import org.springframework.stereotype.Service;
 
 import com.app.backend.repositories.TransportersRepo;
@@ -17,6 +18,7 @@ public class TransporterService {
     public List<Transporter> getTransporters(){
         return transportersRepo.getAll();
     }
+
 
      //SOFIJA
      public boolean addTransporter(Transporter newTransporter){
@@ -34,4 +36,18 @@ public class TransporterService {
             transportersRepo.transportersDb.add(transporter);
             return true;
     } */
+
+    public Transporter getTransporterById(String id){
+        return transportersRepo.getTransporterByID(id);
+    }
+
+    public void deleteById(String id){
+        transportersRepo.deleteTransporterById(id);
+    }
+
+    public List<Route> getRoutesByTransporterId(String id){
+        return transportersRepo.getAllRoutesByTransporterID(id);
+    }
+
+
 }
